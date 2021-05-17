@@ -1,0 +1,30 @@
+name: Build And Release
+on:
+  push:
+    tags:
+      - 'v*'
+jobs:
+  build:
+    name: Build Drishti App
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v1
+      - name: Set up Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '1.22.6'
+          channel: "stable"
+      - name: Install pub Dependencies
+        run: flutter pub get
+      - name: Build Android App
+        run: flutter build apk -t lib/main.dart --split-per-abi
+      - name: Release APK
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/app/outputs/apk/release/*.apk"
+          token: ${{ secrets.DRISHTI_TOKEN }}
