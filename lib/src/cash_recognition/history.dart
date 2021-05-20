@@ -79,7 +79,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   child: Container(
                       child: new DropdownButton<String>(
-                    dropdownColor: Colors.blue[50],
+                    dropdownColor: dropdownColor,
                     value: _currentOption,
                     items: historyOptionNames.map((String value) {
                       return new DropdownMenuItem<String>(
@@ -105,7 +105,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                   )),
                   decoration: new BoxDecoration(
                     borderRadius: new BorderRadius.circular(5),
-                    color: Colors.blue[50],
+                    color: dropdownColor,
                   ),
                 )
               ],
@@ -168,7 +168,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                                               currentNote.label + " rupees",
                                           style: GoogleFonts.poppins(
                                               textStyle: TextStyle(
-                                                  color: Color(0xffffffff),
+                                                  color: defaultTextColor,
                                                   fontSize: 35,
                                                   fontWeight: FontWeight.w400)),
                                         ))),
@@ -187,7 +187,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                                               DateFormat(semanticsFormat)
                                                   .format(currentNote.datetime),
                                           style: TextStyle(
-                                              color: Color(0xffffffff),
+                                              color: defaultTextColor,
                                               fontFamily: 'Poppins',
                                               fontSize: 17,
                                               fontWeight: FontWeight.w400),
@@ -207,7 +207,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                                       icon: Icon(
                                         Icons.delete,
                                         // size: iconSize,
-                                        color: Color(0xffffffff),
+                                        color: deleteiconColor,
                                       ),
                                     )))
                               ])),

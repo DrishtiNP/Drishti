@@ -28,17 +28,17 @@ class _CashRecognitionMainScreenState extends State<CashRecognitionMainScreen> {
             decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                      color: Colors.black54,
+                      color: iconShadowColor,
                       blurRadius: 6,
                       offset: Offset(2, 2),
                       spreadRadius: 1),
                 ],
                 border: Border.all(
-                  color: Colors.grey[100],
+                  color: iconsBorderColor,
                   width: 0,
                 ),
                 borderRadius: BorderRadius.circular(50),
-                color: Colors.grey[100]),
+                color: iconsBorderColor),
             margin: EdgeInsets.only(
                 top: containerMarginTop, left: containerMarginLeft),
             child: IconButton(
@@ -62,17 +62,17 @@ class _CashRecognitionMainScreenState extends State<CashRecognitionMainScreen> {
             decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                      color: iconColor,
+                      color: iconShadowColor,
                       blurRadius: 6,
                       offset: Offset(2, 2),
                       spreadRadius: 1),
                 ],
                 border: Border.all(
-                  color: Colors.grey[100],
+                  color: iconsBorderColor,
                   width: 0,
                 ),
                 borderRadius: BorderRadius.circular(50),
-                color: Colors.grey[100]),
+                color: iconsBorderColor),
             margin: EdgeInsets.only(
                 top: containerMarginTop, right: containerMarginLeft),
             child: IconButton(

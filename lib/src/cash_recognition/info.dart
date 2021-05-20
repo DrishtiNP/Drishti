@@ -35,7 +35,7 @@ class _InstructionPageState extends State<InstructionPage> {
           centerTitle: true,
         ),
         body: getInstructionListView(),
-        backgroundColor: Colors.white);
+        backgroundColor: infobgColor);
   }
 
   Widget getInstructionListView() {
@@ -56,7 +56,7 @@ class _InstructionPageState extends State<InstructionPage> {
               height: MediaQuery.of(context).size.width * 0.22,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
-                color: Color(0xffEAE8E8),
+                color: infoBoxColor,
                 boxShadow: [
                   BoxShadow(
                     color: grey,
@@ -75,7 +75,7 @@ class _InstructionPageState extends State<InstructionPage> {
                         style: listTextStyle),
                     trailing: Icon(
                       Icons.volume_up_sharp,
-                      color: Colors.black,
+                      color: iconColor,
                       size: 40,
                     ),
                     onTap: () {

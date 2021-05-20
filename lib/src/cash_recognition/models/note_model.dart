@@ -31,13 +31,13 @@ class Note {
   };
 
   static final Map<String, Color> noteToColor = {
-    'fifty': five,
-    'five': five,
-    'fivehundred': fivehundred,
-    'hundred': hundred,
-    'ten': ten,
-    'thousand': thousand,
-    'twenty': twenty
+    'fifty': fiftyColor,
+    'five': fiveColor,
+    'fivehundred': fivehundredColor,
+    'hundred': hundredColor,
+    'ten': tenColor,
+    'thousand': thousandColor,
+    'twenty': twentyColor
   };
 
   static const TABLE_NAME = "notes";
