@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:drishti/src/utils/colors.dart';
 
 class ComponentList extends StatelessWidget {
   final components;
@@ -51,7 +52,7 @@ class ComponentList extends StatelessWidget {
                                     fontFamily: "Poppins",
                                     fontSize: 25,
                                     fontWeight: FontWeight.w700,
-                                    color: Color(0xffFFFFFF),
+                                    color: defaultTextColor,
                                     shadows: <Shadow>[
                                       Shadow(
                                         offset: Offset(2.0, 2.0),

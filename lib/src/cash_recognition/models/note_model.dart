@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:drishti/src/utils/colors.dart';
 
 class Note {
   static const Map<int, String> _intToNote = {
@@ -30,13 +31,13 @@ class Note {
   };
 
   static final Map<String, Color> noteToColor = {
-    'fifty': Color(0xFFF006064),
-    'five': Color(0xFFF485B1),
-    'fivehundred': Color(0xFFFE0E0E0),
-    'hundred': Color(0xFFF388E3C),
-    'ten': Color(0xFF000000),
-    'thousand': Color(0xFFF757575),
-    'twenty': Color(0xFFEF5350)
+    'fifty': fiftyColor,
+    'five': fiveColor,
+    'fivehundred': fivehundredColor,
+    'hundred': hundredColor,
+    'ten': tenColor,
+    'thousand': thousandColor,
+    'twenty': twentyColor
   };
 
   static const TABLE_NAME = "notes";
