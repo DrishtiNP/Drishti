@@ -5,6 +5,7 @@ import 'package:drishti/src/db/database_helper.dart';
 import 'package:drishti/src/cash_recognition/models/note_model.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:drishti/src/utils/colors.dart';
 
 // All Items for Dropdown Menu
 List<String> historyOptionNames = [
@@ -71,7 +72,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                       style: GoogleFonts.poppins(
                           textStyle: TextStyle(
                               fontWeight: FontWeight.w600, fontSize: 25)))),
-              backgroundColor: Color(0xff1F7A8C),
+              backgroundColor: appBarBgColor,
               elevation: 15,
               actions: <Widget>[
                 Container(

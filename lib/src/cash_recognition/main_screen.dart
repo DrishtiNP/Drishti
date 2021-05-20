@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:drishti/src/cash_recognition/camera.dart';
 import 'package:drishti/src/cash_recognition/info.dart';
 import 'package:drishti/src/cash_recognition/history.dart';
+import 'package:drishti/src/utils/colors.dart';
 
 class CashRecognitionMainScreen extends StatefulWidget {
   @override
@@ -49,7 +50,7 @@ class _CashRecognitionMainScreenState extends State<CashRecognitionMainScreen> {
               icon: Icon(
                 Icons.info_outline,
                 size: iconSize,
-                color: Colors.black87,
+                color: iconColor,
               ),
             )));
 
@@ -61,7 +62,7 @@ class _CashRecognitionMainScreenState extends State<CashRecognitionMainScreen> {
             decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                      color: Colors.black54,
+                      color: iconColor,
                       blurRadius: 6,
                       offset: Offset(2, 2),
                       spreadRadius: 1),
@@ -83,7 +84,7 @@ class _CashRecognitionMainScreenState extends State<CashRecognitionMainScreen> {
               icon: Icon(
                 Icons.history,
                 size: iconSize,
-                color: Colors.black87,
+                color: iconColor,
               ),
             )));
     return Scaffold(
