@@ -132,8 +132,15 @@ After interviewing more than 50 visually impaired individuals, we found that the
 
 There are many ways in which you can participate in the project, for example:
 
+* Fork this repository before comitting to changes
+* Clone the forked repository to your machine
+* Create a branch with your name
+* Now open Contributors.md file in a text editor, add your name to it. 
+* Add those changes to the branch you just created using the git add command
+* Commit your changes and push the changes to GitHub* 
 * [Submit bugs and feature requests](https://github.com/DrishtiNP/Drishti/issues), and help us verify as they are checked in
 * Review [source code changes](https://github.com/DrishtiNP/Drishti/pulls)
+* We'll be merging all your changes into the master branch of this project. You will get a notification email once the changes have been merged.
 
 If you are interested in fixing issues and contributing directly to the code base, you can submit us a pull request directly at [Drishti Pull Requests](https://github.com/DrishtiNP/Drishti/pulls).
 
