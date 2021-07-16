@@ -130,7 +130,7 @@ After interviewing more than 50 visually impaired individuals, we found that the
 
 ## Contributing
 
-There are many ways in which you can participate in the project, for example:
+These are the steps to contribute in the project, for example:
 
 * Fork this repository before comitting to changes
 * Clone the forked repository to your machine
