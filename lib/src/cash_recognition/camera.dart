@@ -12,23 +12,24 @@ class _CashCameraState extends CameraAppState {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: initController,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            /// GestureDetector wraps entire Camera Widget and classifies on tap
-            return GestureDetector(
-                excludeFromSemantics: true,
-                child: Tooltip(
-                    // add Tooltip for screen readers
-                    message: "Double Tap to Identify Note",
-                    child: cameraWidget(context)),
-                onTap: captureAndClassify);
-          } else {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-        });
+      future: initController,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          /// GestureDetector wraps entire Camera Widget and classifies on tap
+          return GestureDetector(
+              excludeFromSemantics: true,
+              child: Tooltip(
+                  // add Tooltip for screen readers
+                  message: "Double Tap to Identify Note",
+                  child: cameraWidget(context)),
+              onDoubleTap: captureAndClassify);
+        } else {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      },
+    );
   }
 
   Future<void> captureAndClassify() async {
