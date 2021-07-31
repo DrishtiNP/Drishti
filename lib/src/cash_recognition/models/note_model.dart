@@ -55,7 +55,7 @@ class Note {
 
   Map<String, dynamic> toMap() {
     final map = <String, dynamic>{
-      COLUMN_NOTE: _noteToInt[label!],
+      COLUMN_NOTE: _noteToInt[label],
     };
     if (id != null) {
       map[COLUMN_ID] = id;
@@ -71,7 +71,7 @@ class Note {
     note = map[COLUMN_NOTE];
     datetimeInt = map[COLUMN_DATETIME];
     datetime = DateTime.fromMicrosecondsSinceEpoch(datetimeInt!);
-    label = _intToNote[note!];
-    value = _noteToValues[label!];
+    label = _intToNote[note];
+    value = _noteToValues[label];
   }
 }

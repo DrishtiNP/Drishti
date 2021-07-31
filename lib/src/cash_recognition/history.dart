@@ -55,9 +55,9 @@ class _HistoryScreenState extends State<HistoryScreen> {
     super.initState();
     // define an initial Dropdown Option
     _currentOption = historyOptionNames[0];
-    notes = historyOptions[_currentOption!]!['queryFunction']();
-    dateFormat = historyOptions[_currentOption!]!['datetimeFormat'];
-    semanticsFormat = historyOptions[_currentOption!]!['semanticsFormat'];
+    notes = historyOptions[_currentOption]?['queryFunction']();
+    dateFormat = historyOptions[_currentOption]?['datetimeFormat'];
+    semanticsFormat = historyOptions[_currentOption]?['semanticsFormat'];
   }
 
   @override
@@ -95,11 +95,11 @@ class _HistoryScreenState extends State<HistoryScreen> {
                       setState(() {
                         _currentOption = newValue;
                         notes =
-                            historyOptions[_currentOption!]!['queryFunction']();
+                            historyOptions[_currentOption]?['queryFunction']();
                         dateFormat =
-                            historyOptions[_currentOption!]!['datetimeFormat'];
+                            historyOptions[_currentOption]?['datetimeFormat'];
                         semanticsFormat =
-                            historyOptions[_currentOption!]!['semanticsFormat'];
+                            historyOptions[_currentOption]?['semanticsFormat'];
                       });
                     },
                   )),
