@@ -19,6 +19,6 @@ class HomeScreen extends StatelessWidget {
     /// else, directly switch to the only view screen available
     return components.length > 1
         ? ComponentList(components)
-        : components[0]['viewScreen'];
+        : components[0]['viewScreen'] as Widget;
   }
 }

@@ -1,5 +1,4 @@
 import 'package:audioplayers/audioplayers.dart';
-import 'package:audioplayers/audio_cache.dart';
 
 class MediaPlayer {
   /// An AudioPlayer Widget that can be reused for different components
@@ -17,6 +16,6 @@ class MediaPlayer {
 
   static stopAudio() {
     // stop a currently playing audio
-    _audioPlayer?.stop();
+    _audioPlayer.stop();
   }
 }

@@ -44,18 +44,18 @@ class Note {
   static const COLUMN_ID = "id";
   static const COLUMN_NOTE = "note";
   static const COLUMN_DATETIME = "datetime";
-  int id;
-  int note;
-  int datetimeInt;
-  DateTime datetime;
-  String label;
-  int value;
+  int? id;
+  int? note;
+  int? datetimeInt;
+  late DateTime datetime;
+  String? label;
+  int? value;
 
   Note({this.id, this.label, this.datetimeInt});
 
   Map<String, dynamic> toMap() {
     final map = <String, dynamic>{
-      COLUMN_NOTE: _noteToInt[label],
+      COLUMN_NOTE: _noteToInt[label!],
     };
     if (id != null) {
       map[COLUMN_ID] = id;
@@ -70,8 +70,8 @@ class Note {
     id = map[COLUMN_ID];
     note = map[COLUMN_NOTE];
     datetimeInt = map[COLUMN_DATETIME];
-    datetime = DateTime.fromMicrosecondsSinceEpoch(datetimeInt);
-    label = _intToNote[note];
-    value = _noteToValues[label];
+    datetime = DateTime.fromMicrosecondsSinceEpoch(datetimeInt!);
+    label = _intToNote[note!];
+    value = _noteToValues[label!];
   }
 }

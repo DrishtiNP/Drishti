@@ -20,14 +20,9 @@ class DatabaseHelper {
 
   static final DatabaseHelper instance = DatabaseHelper._privateConstructor();
 
-  static Database _database;
+  static Database? _database;
 
-  Future<Database> get database async {
-    if (_database == null) {
-      _database = await _initDatabase();
-    }
-    return _database;
-  }
+  Future<Database> get database async => _database ??= await _initDatabase();
 
   Future<Database> _initDatabase() async {
     Directory dir = await getApplicationDocumentsDirectory();
@@ -48,7 +43,7 @@ class DatabaseHelper {
 
   Future<int> insert(Note note) async {
     /// Insert given cash note object to db
-    Database db = await instance.database;
+    Database db = await (instance.database);
     note.datetimeInt = DateTime.now().microsecondsSinceEpoch;
     return await db.insert(NOTES_TABLE_NAME, note.toMap());
   }
@@ -88,7 +83,7 @@ class DatabaseHelper {
   Future<List<Note>> queryCustom(
       DateTime initialDateTime, DateTime finalDateTime) async {
     /// List notes inserted from [initialDateTime] to [finalDateTime]
-    Database db = await instance.database;
+    Database db = await (instance.database);
     var notes = await db.query(NOTES_TABLE_NAME,
         where:
             "$NOTES_COLUMN_DATETIME BETWEEN '?' AND '?' ORDER BY $NOTES_COLUMN_DATETIME DESC",
@@ -106,7 +101,7 @@ class DatabaseHelper {
 
   Future<List<Note>> queryAll() async {
     /// List all the notes stored in db
-    Database db = await instance.database;
+    Database db = await (instance.database);
     var notes = await db.query(NOTES_TABLE_NAME);
     List<Note> noteList = [];
     notes.forEach((currentNote) {
@@ -116,9 +111,9 @@ class DatabaseHelper {
     return noteList;
   }
 
-  Future<int> delete(int id) async {
+  Future<int> delete(int? id) async {
     /// Delete note with the given [id]
-    Database db = await instance.database;
+    Database db = await (instance.database);
     return await db.delete(NOTES_TABLE_NAME,
         where: '$NOTES_COLUMN_ID = ?', whereArgs: [id]);
   }
