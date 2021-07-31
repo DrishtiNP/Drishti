@@ -11,28 +11,28 @@ class CameraApp extends StatefulWidget {
 }
 
 class CameraAppState extends State<CameraApp> with WidgetsBindingObserver {
-  CameraController _controller;
-  Future<void> initController;
+  late CameraController _controller;
+  Future<void>? initController;
   var isCameraReady = false;
 
   @override
   void initState() {
     super.initState();
     this.initCamera();
-    WidgetsBinding.instance.addObserver(this);
+    WidgetsBinding.instance?.addObserver(this);
   }
 
   @override
   void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
-    _controller?.dispose();
+    WidgetsBinding.instance?.removeObserver(this);
+    _controller.dispose();
     super.dispose();
   }
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed)
-      initController = _controller != null ? _controller.initialize() : null;
+      initController = _controller.initialize();
     if (!mounted) return;
     setState(() {
       isCameraReady = true;
@@ -49,26 +49,28 @@ class CameraAppState extends State<CameraApp> with WidgetsBindingObserver {
         camera.aspectRatio;
     if (scale < 1) scale = 1 / scale;
     return Align(
-        alignment: Alignment.center,
-        child: Transform.scale(
-          scale: scale,
-          child: CameraPreview(_controller),
-        ));
+      alignment: Alignment.center,
+      child: Transform.scale(
+        scale: scale,
+        child: CameraPreview(_controller),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: initController,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            return cameraWidget(context);
-          } else {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-        });
+      future: initController,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          return cameraWidget(context);
+        } else {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      },
+    );
   }
 
   Future<void> initCamera() async {

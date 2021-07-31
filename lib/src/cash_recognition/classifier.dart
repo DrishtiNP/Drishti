@@ -14,15 +14,15 @@ Future<void> classifyImage(String imagePath) async {
   await Tflite.loadModel(model: _modelPath, labels: _labelPath);
   // Run the model on image
   // High threshold for better accuracy
-  var output = await Tflite.runModelOnImage(
+  List<dynamic>? output = await (Tflite.runModelOnImage(
       path: imagePath,
       numResults: 2,
       threshold: 0.99,
       imageMean: 117.0,
       imageStd: 1.0,
-      asynch: true);
+      asynch: true));
   // Add classified note to database and play the corresponding audio feedback
-  if (output.isNotEmpty) {
+  if (output != null && output.isNotEmpty) {
     String result = output[0]["label"];
     // print(result + ' ' + output[0]["confidence"].toString());
     String note = result.substring(2);
