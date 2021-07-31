@@ -22,7 +22,7 @@ class _CashCameraState extends CameraAppState {
                   // add Tooltip for screen readers
                   message: "Double Tap to Identify Note",
                   child: cameraWidget(context)),
-              onDoubleTap: captureAndClassify);
+              onTap: captureAndClassify);
         } else {
           return Center(
             child: CircularProgressIndicator(),

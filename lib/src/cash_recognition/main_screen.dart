@@ -37,11 +37,11 @@ class CashRecognitionMainScreen extends StatelessWidget {
 
 class AlignedButton extends StatelessWidget {
   const AlignedButton({
-    Key key,
-    @required this.toolTip,
-    @required this.icon,
-    @required this.alignment,
-    @required this.onPressed,
+    Key? key,
+    required this.toolTip,
+    required this.icon,
+    required this.alignment,
+    required this.onPressed,
   }) : super(key: key);
 
   final String toolTip;
