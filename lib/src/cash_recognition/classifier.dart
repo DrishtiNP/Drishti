@@ -1,3 +1,5 @@
+import 'package:drishti/src/utils/haptic_feedback.dart';
+import 'package:flutter_vibrate/flutter_vibrate.dart';
 import 'package:tflite/tflite.dart';
 import 'dart:async';
 import 'package:drishti/src/utils/media_player.dart';
@@ -29,10 +31,16 @@ Future<void> classifyImage(String imagePath) async {
     Note noteObj = Note(label: note);
     await DatabaseHelper.instance.insert(noteObj);
     playAudio(note);
+    if(HapticFeedback.canVibrate){
+      Vibrate.feedback(FeedbackType.success);
+    }
   }
   // else play [wrong.mp3]
   else {
     await MediaPlayer.playAudio(audiofile + 'wrong.mp3');
+    if(HapticFeedback.canVibrate){
+      Vibrate.feedback(FeedbackType.error);
+    }
   }
 }
 

@@ -4,94 +4,96 @@ import 'package:drishti/src/cash_recognition/info.dart';
 import 'package:drishti/src/cash_recognition/history.dart';
 import 'package:drishti/src/utils/colors.dart';
 
-class CashRecognitionMainScreen extends StatefulWidget {
+class CashRecognitionMainScreen extends StatelessWidget {
   @override
-  _CashRecognitionMainScreenState createState() =>
-      _CashRecognitionMainScreenState();
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          CashCamera(),
+          AlignedButton(
+            toolTip: "Instructions",
+            icon: Icons.info_outline,
+            alignment: Alignment.topLeft,
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => InstructionPage()));
+            },
+          ),
+          AlignedButton(
+            toolTip: "History",
+            icon: Icons.history,
+            alignment: Alignment.topRight,
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => HistoryScreen()));
+            },
+          ),
+        ],
+      ),
+    );
+  }
 }
 
-class _CashRecognitionMainScreenState extends State<CashRecognitionMainScreen> {
+class AlignedButton extends StatelessWidget {
+  const AlignedButton({
+    Key? key,
+    required this.toolTip,
+    required this.icon,
+    required this.alignment,
+    required this.onPressed,
+  }) : super(key: key);
+
+  final String toolTip;
+  final IconData icon;
+  final AlignmentGeometry alignment;
+  final VoidCallback onPressed;
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final containerSize = size.width * 0.16;
     final containerMarginTop = MediaQuery.of(context).padding.top +
         size.height * 0.01; // size.height * 0.07;
-    final containerMarginLeft = size.width * 0.03;
+    final containerMarginSymmetric = size.width * 0.03;
     final iconSize = size.width * 0.1;
 
-    final instructionsButton = Align(
-        alignment: Alignment.topLeft,
-        child: Container(
-            width: containerSize,
-            height: containerSize,
-            decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                      color: iconShadowColor,
-                      blurRadius: 6,
-                      offset: Offset(2, 2),
-                      spreadRadius: 1),
-                ],
-                border: Border.all(
-                  color: iconsBorderColor,
-                  width: 0,
-                ),
-                borderRadius: BorderRadius.circular(50),
-                color: iconsBorderColor),
-            margin: EdgeInsets.only(
-                top: containerMarginTop, left: containerMarginLeft),
-            child: IconButton(
-              tooltip: "Instructions",
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => InstructionPage()));
-              },
-              icon: Icon(
-                Icons.info_outline,
-                size: iconSize,
-                color: iconColor,
-              ),
-            )));
-
-    final historyButton = Align(
-        alignment: Alignment.topRight,
-        child: Container(
-            width: containerSize,
-            height: containerSize,
-            decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                      color: iconShadowColor,
-                      blurRadius: 6,
-                      offset: Offset(2, 2),
-                      spreadRadius: 1),
-                ],
-                border: Border.all(
-                  color: iconsBorderColor,
-                  width: 0,
-                ),
-                borderRadius: BorderRadius.circular(50),
-                color: iconsBorderColor),
-            margin: EdgeInsets.only(
-                top: containerMarginTop, right: containerMarginLeft),
-            child: IconButton(
-              tooltip: "History",
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HistoryScreen()));
-              },
-              icon: Icon(
-                Icons.history,
-                size: iconSize,
-                color: iconColor,
-              ),
-            )));
-    return Scaffold(
-        body: Stack(children: [
-      CashCamera(),
-      instructionsButton,
-      historyButton,
-    ]));
+    return Align(
+      alignment: alignment,
+      child: Container(
+        width: containerSize,
+        height: containerSize,
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: iconShadowColor,
+              blurRadius: 6,
+              offset: Offset(2, 2),
+              spreadRadius: 1,
+            ),
+          ],
+          border: Border.all(
+            color: iconsBorderColor,
+            width: 0,
+          ),
+          borderRadius: BorderRadius.circular(50),
+          color: iconsBorderColor,
+        ),
+        margin: EdgeInsets.only(
+          top: containerMarginTop,
+          left: containerMarginSymmetric,
+          right: containerMarginSymmetric,
+        ),
+        child: IconButton(
+          tooltip: toolTip,
+          onPressed: onPressed,
+          icon: Icon(
+            icon,
+            size: iconSize,
+            color: iconColor,
+          ),
+        ),
+      ),
+    );
   }
 }

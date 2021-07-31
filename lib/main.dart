@@ -1,9 +1,11 @@
+import 'package:drishti/src/utils/haptic_feedback.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:drishti/src/home/home_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  HapticFeedback.ensureInitialized();
   runApp(MyApp());
 }
 
