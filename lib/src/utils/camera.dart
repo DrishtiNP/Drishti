@@ -30,8 +30,9 @@ class CameraAppState extends State<CameraApp> with WidgetsBindingObserver {
   }
 
   activateFlashModeToggler(event) {
-    print(event.toString());
-    _controller.setFlashMode(event);
+    if (isCameraReady) {
+      _controller.setFlashMode(event);
+    }
   }
 
   @override
