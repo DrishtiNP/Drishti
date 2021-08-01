@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:drishti/src/cash_recognition/camera.dart';
-import 'package:drishti/src/cash_recognition/info.dart';
-import 'package:drishti/src/cash_recognition/history.dart';
 import 'package:drishti/src/utils/colors.dart';
 
 class CashRecognitionMainScreen extends StatelessWidget {
@@ -16,8 +14,7 @@ class CashRecognitionMainScreen extends StatelessWidget {
             icon: Icons.info_outline,
             alignment: Alignment.topLeft,
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => InstructionPage()));
+              Navigator.of(context).pushNamed('/instructions');
             },
           ),
           AlignedButton(
@@ -25,8 +22,7 @@ class CashRecognitionMainScreen extends StatelessWidget {
             icon: Icons.history,
             alignment: Alignment.topRight,
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => HistoryScreen()));
+              Navigator.of(context).pushNamed('/history');
             },
           ),
         ],
