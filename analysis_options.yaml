@@ -1,0 +1,8 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    use_key_in_widget_constructors: false
+    avoid_print: false
+    constant_identifier_names: false
+    sized_box_for_whitespace: false

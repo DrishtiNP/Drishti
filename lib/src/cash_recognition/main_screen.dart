@@ -68,7 +68,7 @@ class AlignedButton extends StatelessWidget {
             BoxShadow(
               color: iconShadowColor,
               blurRadius: 6,
-              offset: Offset(2, 2),
+              offset: const Offset(2, 2),
               spreadRadius: 1,
             ),
           ],

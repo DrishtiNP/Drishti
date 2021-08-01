@@ -24,7 +24,7 @@ class _CashCameraState extends CameraAppState {
                   child: cameraWidget(context)),
               onTap: captureAndClassify);
         } else {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         }
