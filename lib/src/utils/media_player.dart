@@ -4,7 +4,7 @@ class MediaPlayer {
   /// An AudioPlayer Widget that can be reused for different components
   ///
   /// To add more features for a component, inherit and override this class
-  static AudioPlayer _audioPlayer = AudioPlayer();
+  static final AudioPlayer _audioPlayer = AudioPlayer();
   static final _audioCache = AudioCache(fixedPlayer: _audioPlayer);
 
   static Future playAudio(String path) async {

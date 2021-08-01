@@ -18,7 +18,7 @@ class CameraAppState extends State<CameraApp> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
-    this.initCamera();
+    initCamera();
     WidgetsBinding.instance?.addObserver(this);
   }
 
@@ -31,8 +31,9 @@ class CameraAppState extends State<CameraApp> with WidgetsBindingObserver {
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.resumed)
+    if (state == AppLifecycleState.resumed) {
       initController = _controller.initialize();
+    }
     if (!mounted) return;
     setState(() {
       isCameraReady = true;
@@ -65,7 +66,7 @@ class CameraAppState extends State<CameraApp> with WidgetsBindingObserver {
         if (snapshot.connectionState == ConnectionState.done) {
           return cameraWidget(context);
         } else {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         }

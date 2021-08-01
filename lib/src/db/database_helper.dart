@@ -7,8 +7,8 @@ import 'package:drishti/src/cash_recognition/models/note_model.dart';
 
 /// A singleton DatabaseHelper class
 class DatabaseHelper {
-  static final _dbName = "drishti.db";
-  static final _dbVersion = 1;
+  static const _dbName = "drishti.db";
+  static const _dbVersion = 1;
 
   static const NOTES_TABLE_NAME = Note.TABLE_NAME;
   static const NOTES_COLUMN_ID = Note.COLUMN_ID;
@@ -52,7 +52,7 @@ class DatabaseHelper {
     /// List notes inserted for the current day
     var now = DateTime.now();
     var today = DateTime(now.year, now.month, now.day);
-    var tomorrow = today.add(Duration(days: 1));
+    var tomorrow = today.add(const Duration(days: 1));
     return queryCustom(today, tomorrow);
   }
 
@@ -61,7 +61,7 @@ class DatabaseHelper {
     var now = DateTime.now();
     var today = DateTime(now.year, now.month, now.day);
     var recentSunday = today.subtract(Duration(days: today.weekday % 7));
-    var nextSunday = recentSunday.add(Duration(days: 7));
+    var nextSunday = recentSunday.add(const Duration(days: 7));
     return queryCustom(recentSunday, nextSunday);
   }
 
@@ -76,7 +76,7 @@ class DatabaseHelper {
   Future<List<Note>> queryCustomDay(DateTime date) async {
     /// List notes inserted on a given day
     var day = DateTime(date.year, date.month, date.day);
-    var nextDay = day.add(Duration(days: 1));
+    var nextDay = day.add(const Duration(days: 1));
     return queryCustom(day, nextDay);
   }
 
@@ -92,10 +92,10 @@ class DatabaseHelper {
           finalDateTime.microsecondsSinceEpoch - 1
         ]);
     List<Note> noteList = [];
-    notes.forEach((currentNote) {
+    for (var currentNote in notes) {
       Note note = Note.fromMap(currentNote);
       noteList.add(note);
-    });
+    }
     return noteList;
   }
 
@@ -104,10 +104,10 @@ class DatabaseHelper {
     Database db = await (instance.database);
     var notes = await db.query(NOTES_TABLE_NAME);
     List<Note> noteList = [];
-    notes.forEach((currentNote) {
+    for (var currentNote in notes) {
       Note note = Note.fromMap(currentNote);
       noteList.add(note);
-    });
+    }
     return noteList;
   }
 

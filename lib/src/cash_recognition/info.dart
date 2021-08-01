@@ -25,11 +25,15 @@ class _InstructionPageState extends State<InstructionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: new Center(
-              child: Text("INFORMATION",
-                  style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                          fontWeight: FontWeight.w600, fontSize: 25)))),
+          title: Center(
+            child: Text(
+              "INFORMATION",
+              style: GoogleFonts.poppins(
+                textStyle:
+                    const TextStyle(fontWeight: FontWeight.w600, fontSize: 25),
+              ),
+            ),
+          ),
           backgroundColor: appBarBgColor,
           elevation: 15,
           centerTitle: true,
@@ -62,7 +66,7 @@ class _InstructionPageState extends State<InstructionPage> {
                     color: grey,
                     spreadRadius: 1,
                     blurRadius: 0,
-                    offset: Offset(0, 3), // changes position of shadow
+                    offset: const Offset(0, 3), // changes position of shadow
                   ),
                 ],
               ),
