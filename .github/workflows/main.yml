@@ -1,5 +1,6 @@
 name: Build And Release
 on:
+  pull_request:
   push:
     tags:
       - 'v*'
