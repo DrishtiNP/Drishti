@@ -23,6 +23,8 @@ class AppRouteObserver extends NavigatorObserver {
     if (previousRoute?.settings.name == '/') {
       print("Reopening Flash Stream");
       FlashModeToggler.flashSubscription.resume();
+      FlashModeToggler.flashModeStream.single
+          .then((value) => FlashModeToggler.flashMode.add);
     }
     super.didPop(route, previousRoute);
   }
