@@ -97,11 +97,6 @@ class CameraAppState extends State<CameraApp> with WidgetsBindingObserver {
     initController = _controller.initialize().then((value) {
       if (!mounted) return;
       setState(() {
-        try {
-          _controller.setFlashMode(FlashMode.off);
-        } catch (e) {
-          print(e);
-        }
         isCameraReady = true;
       });
     });
