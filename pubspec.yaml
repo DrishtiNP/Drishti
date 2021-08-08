@@ -33,6 +33,7 @@ dependencies:
   cupertino_icons: ^1.0.0
   flutter_vibrate: ^1.1.0
   intl: ^0.17.0
+  light: ^2.1.0
 
 dev_dependencies:
   google_fonts: ^2.1.0
